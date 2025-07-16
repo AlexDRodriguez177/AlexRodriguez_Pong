@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private float x = 8f;
+    public enum CollisionTag
     [SerializeField] private float ballSpeed = 8f;
-    [SerializeField] private List<string> tags;
-    [SerializeField] private string otherTag;
-    private Vector2 v;
+    [SerializeField] private List<string> collisionTags;
 
     private Vector2 ballDirection;
+
     [SerializeField] private AudioSource aS;
     [SerializeField] private AudioClip clip1;
     [SerializeField] private AudioClip clip2;
@@ -32,19 +31,19 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(tags[0]))
+        if (other.CompareTag(tags[(int)CollisionTag.ScoreWall]))
         {
             ResetBall();
         }
-        else if (other.CompareTag(otherTag))
+        else if (other.CompareTag(tags[(int)CollisionTag.BounceWall]))
         {
-            v.y = -v.y;
+            ballDirection.y = -ballDirection.y;
         }
-        else if (other.CompareTag("Player"))
+        else if (other.CompareTag(tags[(int)CollisionTag.Player]))
         {
-            v.x = -v.x;
-            v.y = transform.position.y - other.transform.position.y;
-            v = v.normalized;
+            ballDirection.x = -ballDirection.x;
+            ballDirection.y = transform.position.y - other.transform.position.y;
+            ballDirection = ballDirection.normalized;
         }
     }
 }
