@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 307957608}
   - component: {fileID: 307957607}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Bottom Wall
   m_TagString: BounceWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 417015233}
   - component: {fileID: 417015234}
   m_Layer: 0
-  m_Name: P
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,8 +619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 0
-  s: 10
-  d: 4
+  speed: 10
+  boundary: 4
   ia:
     m_Name: Ia
     m_Type: 0
@@ -628,7 +628,31 @@ MonoBehaviour:
     m_Id: 45f6577c-fe18-4e52-81b3-97fbb7578ab1
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 44247197-c1c4-4b72-a5a3-d2c05ddb6895
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Ia
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: f067a5ad-5e19-461b-bf87-7f44d9be07fe
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Ia
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 0a43b2db-c0aa-4bb2-83ff-9df3d312df6a
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Ia
+      m_Flags: 8
     m_Flags: 0
 --- !u!61 &417015234
 BoxCollider2D:
@@ -1171,7 +1195,7 @@ GameObject:
   - component: {fileID: 710828497}
   - component: {fileID: 710828498}
   m_Layer: 0
-  m_Name: P
+  m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1260,8 +1284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 1
-  s: 10
-  d: 4
+  speed: 10
+  boundary: 4
   ia:
     m_Name: Ia
     m_Type: 0
@@ -1269,7 +1293,31 @@ MonoBehaviour:
     m_Id: 0091a13a-ccde-43fa-b586-ac10d7ba8fe2
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 50f030fc-a45d-467f-b052-2b1a7a3053c1
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Ia
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 89b9630a-594e-4079-97e0-f0431124fe1c
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Ia
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: eee46cbf-aef2-431c-b172-da4d8b77b663
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Ia
+      m_Flags: 8
     m_Flags: 0
 --- !u!61 &710828498
 BoxCollider2D:
@@ -1329,7 +1377,7 @@ GameObject:
   - component: {fileID: 750163710}
   - component: {fileID: 750163709}
   m_Layer: 0
-  m_Name: Square
+  m_Name: ' Player1 Goal'
   m_TagString: ScoreWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1635,7 +1683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 931116977}
   m_Layer: 0
-  m_Name: OtherGameObjects
+  m_Name: Boundarie Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1924,7 +1972,7 @@ GameObject:
   - component: {fileID: 1014225937}
   - component: {fileID: 1014225936}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Score UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2026,7 +2074,7 @@ GameObject:
   - component: {fileID: 1171526702}
   - component: {fileID: 1171526701}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Top Wall
   m_TagString: BounceWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2162,7 +2210,7 @@ GameObject:
   - component: {fileID: 1368952081}
   - component: {fileID: 1368952082}
   m_Layer: 0
-  m_Name: WhyIsTheBallASquareAndNotACircle?
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2949,7 +2997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1823548398}
   m_Layer: 0
-  m_Name: GameObjects
+  m_Name: Goals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2982,7 +3030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855949037}
   m_Layer: 0
-  m_Name: Art
+  m_Name: HalfCourt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3032,7 +3080,7 @@ GameObject:
   - component: {fileID: 1890164553}
   - component: {fileID: 1890164552}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Player2 Goal
   m_TagString: ScoreWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3253,7 +3301,7 @@ GameObject:
   - component: {fileID: 2057140519}
   - component: {fileID: 2057140518}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Player1 Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3476,7 +3524,7 @@ GameObject:
   - component: {fileID: 2144249600}
   - component: {fileID: 2144249599}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Player2 Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
