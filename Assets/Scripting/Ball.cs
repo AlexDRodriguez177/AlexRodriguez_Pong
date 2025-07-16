@@ -4,10 +4,12 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float x = 8f;
+    [SerializeField] private float ballSpeed = 8f;
     [SerializeField] private List<string> tags;
     [SerializeField] private string otherTag;
     private Vector2 v;
 
+    private Vector2 ballDirection;
     [SerializeField] private AudioSource aS;
     [SerializeField] private AudioClip clip1;
     [SerializeField] private AudioClip clip2;
@@ -15,18 +17,18 @@ public class Ball : MonoBehaviour
     void Start()
     {
         transform.position = Vector2.zero;
-        v = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        ballDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 
     void Update()
     {
-        transform.Translate(v * x * Time.deltaTime);
+        transform.Translate(ballDirection * ballSpeed * Time.deltaTime);
     }
 
     private void ResetBall()
     {
         transform.position = Vector2.zero;
-        v = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        ballDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
