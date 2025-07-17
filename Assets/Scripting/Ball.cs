@@ -4,6 +4,12 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public enum CollisionTag
+    {
+        ScoreWall,
+        BounceWall,
+        Player
+    }
+    
     [SerializeField] private float ballSpeed = 8f;
     [SerializeField] private List<string> collisionTags;
 
