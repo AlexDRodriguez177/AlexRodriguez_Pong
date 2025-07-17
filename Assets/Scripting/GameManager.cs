@@ -6,10 +6,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<int> playerScores;
     [SerializeField] private List<TextMeshProUGUI> playerScoreTexts;
 
-    private static GameManager instance;
+    public static GameManager instance;
     void Start()
     {
-        if(instance != null && instance != this)
+        // destroys any existing GameManager instance in the scene
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
