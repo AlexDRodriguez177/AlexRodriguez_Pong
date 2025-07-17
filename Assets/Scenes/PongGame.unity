@@ -639,7 +639,7 @@ MonoBehaviour:
       m_Flags: 4
     - m_Name: negative
       m_Id: f067a5ad-5e19-461b-bf87-7f44d9be07fe
-      m_Path: <Keyboard>/downArrow
+      m_Path: <Keyboard>/s
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -647,7 +647,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: positive
       m_Id: 0a43b2db-c0aa-4bb2-83ff-9df3d312df6a
-      m_Path: <Keyboard>/upArrow
+      m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1304,7 +1304,7 @@ MonoBehaviour:
       m_Flags: 4
     - m_Name: negative
       m_Id: 89b9630a-594e-4079-97e0-f0431124fe1c
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1312,7 +1312,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: positive
       m_Id: eee46cbf-aef2-431c-b172-da4d8b77b663
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1376,6 +1376,7 @@ GameObject:
   - component: {fileID: 750163711}
   - component: {fileID: 750163710}
   - component: {fileID: 750163709}
+  - component: {fileID: 750163712}
   m_Layer: 0
   m_Name: ' Player1 Goal'
   m_TagString: ScoreWall
@@ -1493,12 +1494,25 @@ Transform:
   m_GameObject: {fileID: 750163708}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.1563964, y: -0.92061, z: 0}
+  m_LocalPosition: {x: -7.1666665, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1823548398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750163712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750163708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2759a535c9fc04f9771bad961d3e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoringPlayer: 1
 --- !u!1 &818121079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,9 +2312,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ad354a211088a408aff25e3ea24117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 8
-  tags: []
-  otherTag: 
+  ballSpeed: 8
+  collisionTags:
+  - BounceWall
+  - Player
+  - ScoreWall
   aS: {fileID: 0}
   clip1: {fileID: 0}
   clip2: {fileID: 0}
@@ -3012,7 +3028,7 @@ Transform:
   m_GameObject: {fileID: 1823548397}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01027, y: 0.92061, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3079,6 +3095,7 @@ GameObject:
   - component: {fileID: 1890164554}
   - component: {fileID: 1890164553}
   - component: {fileID: 1890164552}
+  - component: {fileID: 1890164555}
   m_Layer: 0
   m_Name: Player2 Goal
   m_TagString: ScoreWall
@@ -3196,12 +3213,25 @@ Transform:
   m_GameObject: {fileID: 1890164551}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.1769366, y: -0.92061, z: 0}
+  m_LocalPosition: {x: 7.1666665, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1823548398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1890164555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890164551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2759a535c9fc04f9771bad961d3e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoringPlayer: 0
 --- !u!1 &2019126693
 GameObject:
   m_ObjectHideFlags: 0
