@@ -15,10 +15,10 @@ public class Ball : MonoBehaviour
     
     private Vector2 ballDirection;
 
-    [SerializeField] private AudioSource aS;
-    [SerializeField] private AudioClip clip1;
-    [SerializeField] private AudioClip clip2;
-    [SerializeField] private AudioClip clip3;
+    [SerializeField] public AudioSource ballAudioScource;
+    [SerializeField] public AudioClip wallBounceAudio;
+    [SerializeField] public AudioClip playerBounceAudio;
+    [SerializeField] public AudioClip scoreAudio;
     void Start()
     {
         transform.position = Vector2.zero;
@@ -27,6 +27,7 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
+        ballAudioScource= GetComponent<AudioSource>();
         transform.Translate(ballDirection * ballSpeed * Time.deltaTime);
     }
 
@@ -39,16 +40,19 @@ public class Ball : MonoBehaviour
     {
         if (other.CompareTag(collisionTags[(int)CollisionTag.ScoreWall]))
         {
+            ballAudioScource.PlayOneShot(scoreAudio);
             ResetBall();
             GameManager.IncrementScore(other.GetComponent<ScoreWall>().scoringPlayer);
         }
         
         else if (other.CompareTag(collisionTags[(int)CollisionTag.BounceWall]))
         {
+            ballAudioScource.PlayOneShot(wallBounceAudio);
             ballDirection.y = -ballDirection.y;
         }
         else if (other.CompareTag(collisionTags[(int)CollisionTag.Player]))
         {
+            ballAudioScource.PlayOneShot(playerBounceAudio);
             ballDirection.x = -ballDirection.x;
             ballDirection.y = transform.position.y - other.transform.position.y;
             ballDirection = ballDirection.normalized;
